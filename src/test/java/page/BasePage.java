@@ -62,18 +62,26 @@ public class BasePage {
 
 
     public void collectLinks(int links)  {
-        int numb = links;
-        String collect[] = new String[numb];
-        Car[] cars = new Car[numb];
 
-        for (int i = 0; i < numb; i++) {
+        String collect[] = new String[links];
+        Car[] cars = new Car[links];
 
-            String push = driver.findElement(By.xpath("/descendant::section//section[" + (i + 1) + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
-            collect[i] = String.valueOf(push);
+        for (int i = 0; i < links; i++) {
+            String push;
+            try {
+                push = driver.findElement(By.xpath("/descendant::section//section[" + (i + 1) + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
 
+            }catch(Exception io){
+                System.out.println(io.getMessage());
+                continue;}
+            if(push == null){
+                System.out.println("ошибочка");
+                continue;
+            }
+                collect[i] = String.valueOf(push);
         }
 
-        for (int x = 0; x < numb; x++) {
+        for (int x = 0; x < links; x++) {
             driver.get(collect[x]);
             String cName = driver.findElement(By.xpath("//descendant::div[@id = 'heading-cars']//h1")).getText();
             String cPrice = driver.findElement(By.xpath("//descendant::section[@class = 'price mb-15 mhide']/descendant::div[@class = 'price_value']/strong")).getText();
@@ -82,8 +90,8 @@ public class BasePage {
 
              }
 
-            for(int i = 0; i < numb; i++){
-                cars[i].writeDate("C://Program Files//Java//notes3.txt");
+            for(int i = 0; i < links; i++){
+                cars[i].writeDate("C://Program Files//Java//notes3.txt",true);
             }
 
     }

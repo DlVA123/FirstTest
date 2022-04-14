@@ -24,8 +24,8 @@ public class Car {
         System.out.println(price + "000 KM");
     }
 
-    public void writeDate(String fileName) {
-        try(FileWriter writer = new FileWriter(fileName,true ))
+    public void writeDate(String fileName,boolean reWriteData) {
+        try(FileWriter writer = new FileWriter(fileName,reWriteData ))
         {
             writer.write(name+ "    ");
             writer.write(run + "    ");
