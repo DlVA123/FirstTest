@@ -4,9 +4,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BasePage {
@@ -18,11 +15,7 @@ public class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, 15);
 
-
     }
-
-
-
 
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
@@ -92,8 +85,6 @@ public class BasePage {
             for(int i = 0; i < numb; i++){
                 cars[i].writeDate("C://Program Files//Java//notes3.txt");
             }
-
-
 
     }
 }
