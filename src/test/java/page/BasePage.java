@@ -70,15 +70,18 @@ public class BasePage {
 
     public void collectLinks(int links)  {
         int numb = links;
-        String collect[] = new String[numb + 1];
-        Car[] cars = new Car[numb +1];
-        ;
-        for (int i = 1; i <= numb; i++) {
-            String push = driver.findElement(By.xpath("/descendant::section//section[" + i + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
+        String collect[] = new String[numb];
+        Car[] cars = new Car[numb];
+
+        for (int i = 0; i < numb; i++) {
+
+            String push = driver.findElement(By.xpath("/descendant::section//section[" + (i + 1) + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
             collect[i] = String.valueOf(push);
+            System.out.println(push);
+
         }
 
-        for (int x = 1; x <= numb; x++) {
+        for (int x = 0; x < numb; x++) {
             driver.get(collect[x]);
             String cName = driver.findElement(By.xpath("//div[6]/div[11]/div[1]/div/h1")).getText();
             String cPrice = driver.findElement(By.xpath("//div[6]/div[11]/div[4]/aside/section[1]/div[1]/strong")).getText();
@@ -87,7 +90,7 @@ public class BasePage {
 
              }
 
-            for(int i = 1; i <=numb; i++){
+            for(int i = 0; i < numb; i++){
                 cars[i].writeDate("C://Program Files//Java//notes3.txt");
             }
 
