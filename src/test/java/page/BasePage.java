@@ -77,15 +77,14 @@ public class BasePage {
 
             String push = driver.findElement(By.xpath("/descendant::section//section[" + (i + 1) + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
             collect[i] = String.valueOf(push);
-            System.out.println(push);
 
         }
 
         for (int x = 0; x < numb; x++) {
             driver.get(collect[x]);
-            String cName = driver.findElement(By.xpath("//div[6]/div[11]/div[1]/div/h1")).getText();
-            String cPrice = driver.findElement(By.xpath("//div[6]/div[11]/div[4]/aside/section[1]/div[1]/strong")).getText();
-            String cRun =  driver.findElement(By.xpath("//div[6]/div[11]/div[4]/aside/section[1]/div[3]/span")).getText();
+            String cName = driver.findElement(By.xpath("//descendant::div[@id = 'heading-cars']//h1")).getText();
+            String cPrice = driver.findElement(By.xpath("//descendant::section[@class = 'price mb-15 mhide']/descendant::div[@class = 'price_value']/strong")).getText();
+            String cRun =  driver.findElement(By.xpath("//descendant::section[@class = 'price mb-15 mhide']/descendant::div[@class = 'base-information bold']/span")).getText();
             cars[x] = new Car(cName, cPrice, cRun);
 
              }
