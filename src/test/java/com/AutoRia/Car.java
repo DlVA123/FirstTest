@@ -4,9 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Car {
-    public String name;
-    public String run;
-    public String price;
+    private String name;
+    private String run;
+    private String price;
 
 
     public Car(String name, String run, String price) {
