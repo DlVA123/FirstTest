@@ -8,10 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import page.Main;
 import page.Second;
-
-
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 
 public class FirstTest {
     public WebDriver driver;

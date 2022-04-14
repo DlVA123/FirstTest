@@ -1,9 +1,8 @@
 package page;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
+
 
 public class Second extends BasePage {
     public Second(WebDriver driver) {
