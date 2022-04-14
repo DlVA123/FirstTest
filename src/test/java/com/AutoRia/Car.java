@@ -23,8 +23,8 @@ public class Car {
     public void printPrice(){
         System.out.println(price + "000 KM");
     }
-    public void writeDate() {
-        try(FileWriter writer = new FileWriter("C://Program Files//Java//notes3.txt",true ))
+    public void writeDate(String fileName) {
+        try(FileWriter writer = new FileWriter(fileName,true ))
         {
             writer.write(name+ "    ");
             writer.write(run + "    ");

@@ -88,7 +88,7 @@ public class BasePage {
              }
 
             for(int i = 1; i <=numb; i++){
-                cars[i].writeDate();
+                cars[i].writeDate("C://Program Files//Java//notes3.txt");
             }
 
 
