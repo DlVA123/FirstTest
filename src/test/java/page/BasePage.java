@@ -52,33 +52,30 @@ public class BasePage {
         return count;
     }
 
-    public void clickElement(By elementBy) {
+    public void scrollTo(By elementBy) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         WebElement element = driver.findElement(elementBy);
         executor.executeScript("arguments[0].scrollIntoView(true);", element);
-        driver.findElement(elementBy).click();
-
     }
 
 
-    public void collectLinks(int links)  {
+    public void сollectLinks(int links)  {
 
         String collect[] = new String[links];
         Car[] cars = new Car[links];
-
+        int section = 1;
         for (int i = 0; i < links; i++) {
             String push;
             try {
-                push = driver.findElement(By.xpath("/descendant::section//section[" + (i + 1) + "]/descendant::a[@class ='m-link-ticket']")).getAttribute("href");
-
+                scrollTo(By.xpath("/descendant::section//section[19]"));
+                WebElement element = driver.findElement(By.xpath("/descendant::section//section["+ section +"]/descendant::a[@class ='m-link-ticket']"));
+                push = element.getAttribute("href");
             }catch(Exception io){
                 System.out.println(io.getMessage());
                 continue;}
-            if(push == null){
-                System.out.println("ошибочка");
-                continue;
-            }
+
                 collect[i] = String.valueOf(push);
+            section++;
         }
 
         for (int x = 0; x < links; x++) {

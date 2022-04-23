@@ -35,9 +35,9 @@ public void end(){
     @Test
     public void firsTest()  {
         main.goTo()
-                .findMark("Lexus")
-                .findModel("LX 470")
-                .findRegion("Київ")
+                .findMark("Nissan")
+                .findModel("Almera")
+                //.findRegion("Київ")
                 .startSeach();
         second.checkPage()
                 .collectData();

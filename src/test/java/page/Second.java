@@ -17,7 +17,15 @@ public class Second extends BasePage {
 
     public Second collectData() {
         int carCount = takeCount(By.xpath("//*[@id='staticResultsCount']"));
-        collectLinks(carCount);
+        if( carCount <= 20)
+            сollectLinks(carCount);
+        else{
+
+            for(int i = 0; i < carCount; i = i+20){
+                int test = 20;
+                сollectLinks(test);
+            }
+        }
 
 
        return this;
